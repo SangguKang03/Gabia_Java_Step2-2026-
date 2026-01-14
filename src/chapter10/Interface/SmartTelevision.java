@@ -1,0 +1,36 @@
+package chapter10.Interface;
+
+public class SmartTelevision extends ImterTest02 implements Remote, Searchable{
+	
+	//멤버변수
+	private int volume;
+	
+	@Override
+	public void search(String url) {
+		System.out.println(url + "을 검색합니다.");
+	}
+
+	@Override
+	public void turnOn() {
+		System.out.println("TV를 켭니다.");
+	}
+
+	@Override
+	public void turnOff() {
+		System.out.println("TV를 끕니다.");
+	}
+
+	@Override
+	public void setVolume(int volume) {
+		
+		if(volume > Remote.MAX_VOLUME) {
+			this.volume = Remote.MAX_VOLUME;
+		}else if(volume < Remote.MIN_VOLUME){
+			this.volume = Remote.MIN_VOLUME;
+		}else {
+			this.volume = volume;
+		}
+		System.out.println("현재 TV 불륨: " + this.volume);
+	}
+
+}
